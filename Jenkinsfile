@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = 'dockerhub'
-        IMAGE_NAME = 'adharsh04/react-sample'
+        IMAGE_NAME = 'adharshsanda/react-sample'
     }
 
     stages {
@@ -29,6 +29,7 @@ pipeline {
             steps {
                 sh 'kubectl apply -f k8s/deployment.yaml'
                 sh 'kubectl apply -f k8s/service.yaml'
+                sh 'minikube service react-sample-service'
             }
         }
     }
